@@ -1,0 +1,767 @@
+﻿<!DOCTYPE html>
+
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NaturaVital — Catálogo Completo</title>
+<link href="fonts.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cream:#F7F3ED;--forest:#1D3D2F;--gold:#C6973F;--text:#1C1C18;--mid:#555548;--whatsapp:#25D366}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);font-size:16px}
+.hero{background:var(--forest);padding:60px 20px;text-align:center}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,10vw,88px);font-weight:700;color:#FEFCF8}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero p{color:rgba(255,255,255,.6);margin-top:12px;font-size:clamp(15px,3vw,18px)}
+.nav{position:sticky;top:0;background:white;display:flex;overflow-x:auto;border-bottom:1px solid #eee;z-index:100;padding:0 12px;-webkit-overflow-scrolling:touch}
+.nb{padding:14px 16px;text-decoration:none;color:#666;font-weight:500;white-space:nowrap;display:inline-block;font-size:15px}
+.nb:hover{color:var(--forest)}
+.ps{padding:50px 20px;max-width:1100px;margin:0 auto}
+.ps+.ps{border-top:1px solid rgba(0,0,0,.08)}
+.pi{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.gallery{position:sticky;top:80px}
+.gmain{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:#e0dbd2;margin-bottom:10px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.gmain img{width:100%;height:100%;object-fit:cover}
+.gthumbs{display:flex;gap:8px}
+.thumb{flex:1;aspect-ratio:1;border-radius:10px;overflow:hidden;cursor:pointer;border:2px solid transparent;min-height:60px}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb.active{border-color:var(--gold)}
+.pbrand{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#999;margin-bottom:8px}
+.ptitle{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,5vw,40px);font-weight:700;margin:8px 0}
+.pdesc{font-size:16px;line-height:1.8;color:var(--mid);margin:20px 0}
+.benefits{margin:20px 0;padding:0;list-style:none}
+.benefits li{font-size:15px;line-height:1.7;color:var(--mid);padding:8px 0 8px 28px;position:relative}
+.benefits li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:13px;top:10px}
+/* Síntomas / Condiciones */
+.symptoms{margin:20px 0;padding:16px 20px;border-radius:12px;background:rgba(0,0,0,.03);border-left:4px solid var(--gold)}
+.symptoms-title{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--forest);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.symptoms-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.symptoms-list li{font-size:14px;padding:6px 14px;border-radius:25px;background:white;color:var(--text);border:1px solid rgba(0,0,0,.1);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+.tag{font-size:12px;padding:5px 14px;border-radius:20px;border:1px solid #ddd}
+.stats{display:flex;gap:12px;padding:16px;background:rgba(0,0,0,.03);border-radius:12px;margin-top:20px}
+.sb{flex:1;text-align:center}
+.sb strong{display:block;font-size:22px}
+.sb span{font-size:11px;color:#999}
+/* Precio */
+.pprice{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,38px);font-weight:800;color:var(--forest);margin:6px 0 4px;letter-spacing:.5px}
+.pprice span{font-size:14px;font-weight:400;color:#999;font-family:'Jost',sans-serif}
+/* Botón WhatsApp CTA */
+.cta-whatsapp{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:24px;padding:16px 28px;background:var(--whatsapp);color:white;text-decoration:none;border-radius:14px;font-size:17px;font-weight:600;letter-spacing:.3px;transition:all .25s ease;box-shadow:0 4px 14px rgba(37,211,102,.35)}
+.cta-whatsapp:hover{background:#1EBE5A;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.45)}
+.cta-whatsapp:active{transform:translateY(0)}
+.cta-whatsapp svg{flex-shrink:0}
+.t-mag .tag{background:#E8F2F8;border-color:#3A6B8A;color:#3A6B8A}
+.t-mag .benefits li::before{color:#3A6B8A}
+.t-mag .symptoms{border-left-color:#3A6B8A}
+.t-meno .tag{background:#F8EAF0;border-color:#8B3A5A;color:#8B3A5A}
+.t-meno .benefits li::before{color:#8B3A5A}
+.t-meno .symptoms{border-left-color:#8B3A5A}
+.t-ciat .tag{background:#E8F0F8;border-color:#2A5C8A;color:#2A5C8A}
+.t-ciat .benefits li::before{color:#2A5C8A}
+.t-ciat .symptoms{border-left-color:#2A5C8A}
+.t-oreg .tag{background:#E8F5EA;border-color:#2D6030;color:#2D6030}
+.t-oreg .benefits li::before{color:#2D6030}
+.t-oreg .symptoms{border-left-color:#2D6030}
+.t-glu .tag{background:#FEF3E8;border-color:#B85C1A;color:#B85C1A}
+.t-glu .benefits li::before{color:#B85C1A}
+.t-glu .symptoms{border-left-color:#B85C1A}
+.t-ash .tag{background:#F0F5E0;border-color:#5A7A2A;color:#5A7A2A}
+.t-ash .benefits li::before{color:#5A7A2A}
+.t-ash .symptoms{border-left-color:#5A7A2A}
+.t-vitdk .tag{background:#FFF3E0;border-color:#E67E22;color:#E67E22}
+.t-vitdk .benefits li::before{color:#E67E22}
+.t-vitdk .symptoms{border-left-color:#E67E22}
+.t-kids .tag{background:#FFF3E0;border-color:#E08A1E;color:#E08A1E}
+.t-kids .benefits li::before{color:#E08A1E}
+.t-kids .symptoms{border-left-color:#E08A1E}
+.t-prob .tag{background:#FCE4EC;border-color:#C2185B;color:#C2185B}
+.t-prob .benefits li::before{color:#C2185B}
+.t-prob .symptoms{border-left-color:#C2185B}
+.t-evo .tag{background:#F5F0E0;border-color:#8B6914;color:#8B6914}
+.t-evo .benefits li::before{color:#8B6914}
+.t-evo .symptoms{border-left-color:#8B6914}
+.t-omega .tag{background:#E3EDF5;border-color:#1A3C5A;color:#1A3C5A}
+.t-omega .benefits li::before{color:#1A3C5A}
+.t-omega .symptoms{border-left-color:#1A3C5A}
+.t-col .tag{background:#F3E5F5;border-color:#7B1FA2;color:#7B1FA2}
+.t-col .benefits li::before{color:#7B1FA2}
+.t-col .symptoms{border-left-color:#7B1FA2}
+.t-colp .tag{background:#E0F2F1;border-color:#00796B;color:#00796B}
+.t-colp .benefits li::before{color:#00796B}
+.t-colp .symptoms{border-left-color:#00796B}
+footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;font-size:13px}
+/* RESPONSIVE MÓVIL */
+@media(max-width:720px){
+  .pi{grid-template-columns:1fr;gap:24px}
+  .gallery{position:static}
+  .ps{padding:36px 16px}
+  .ptitle{font-size:clamp(24px,7vw,34px)}
+  .pdesc{font-size:16px}
+  .benefits li{font-size:15px;padding-left:26px}
+  .nb{padding:12px 14px;font-size:14px}
+  .stats{flex-wrap:wrap;gap:8px}
+  .sb{min-width:calc(50% - 8px)}
+  .sb strong{font-size:20px}
+  .gthumbs{gap:6px}
+  .thumb{min-height:50px}
+  .cta-whatsapp{font-size:16px;padding:14px 20px}
+  .symptoms-list li{font-size:13px;padding:5px 12px}
+}
+@media(max-width:400px){
+  .hero{padding:40px 16px}
+  .hero h1{font-size:36px}
+  .hero p{font-size:14px}
+  .ptitle{font-size:24px}
+  .ps{padding:28px 14px}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>Natura<em>Vital</em></h1>
+  <p>Fórmulas de alta potencia para tu bienestar integral</p>
+</header>
+<nav class="nav">
+  <a href="https://catalogosuplementos.netlify.app/#mag" class="nb">💊 Magnesio</a>
+  <a href="https://catalogosuplementos.netlify.app/#meno" class="nb">🌸 Menopausia</a>
+  <a href="https://catalogosuplementos.netlify.app/#ciat" class="nb">🔵 Ciático</a>
+  <a href="https://catalogosuplementos.netlify.app/#oreg" class="nb">🌿 Orégano</a>
+  <a href="https://catalogosuplementos.netlify.app/#glu" class="nb">🦴 Glucosamina</a>
+  <a href="https://catalogosuplementos.netlify.app/#ash" class="nb">🍃 Ashwagandha</a>
+  <a href="https://catalogosuplementos.netlify.app/#vitdk" class="nb">☀️ Vitamina D&amp;K</a>
+  <a href="#kids" class="nb">👶 Multivitamínico Niños</a>
+  <a href="#prob" class="nb">🩷 Probiótico Mujer</a>
+  <a href="#evo" class="nb">✨ Evolution Probiotics</a>
+  <a href="#omega" class="nb">🐟 Omega 3-6-9</a>
+  <a href="#col" class="nb">💜 Colágeno Megneta</a>
+  <a href="#colp" class="nb">💙 Péptidos de Colágeno</a>
+</nav>
+
+<!-- MAGNESIO (1-3) -->
+<section class="ps t-mag" id="mag">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img1" src="img/1.jpg" alt="Magnesio"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage(&#39;img1&#39;,&#39;img/1.jpg&#39;,this)"><img src="img/1.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img1&#39;,&#39;img/2.jpg&#39;,this)"><img src="img/2.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img1&#39;,&#39;img/3.jpg&#39;,this)"><img src="img/3.jpg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">VEV Nutrition</div>
+    <h2 class="ptitle">Magnesio Complejo 15-en-1</h2>
+    <p class="pprice">Gs. 120.000 <span>IVA incl.</span></p>
+    <p class="pdesc">Fórmula extra fuerza con 4 formas de magnesio (glicinato, óxido, malato y citrato) para una mejor absorción. Complementada con Ashwagandha, L-Teanina, Vitamina D y Fosfatidilserina.</p>
+    <ul class="benefits">
+      <li><strong>Apoyo para huesos y reabsorción</strong> — Cuatro formas de magnesio trabajan en sinergia para fortalecer la estructura ósea</li>
+      <li><strong>Apoyo para cortisol y hormonas</strong> — Ashwagandha ayuda a promover una sensación de calma y bienestar diario</li>
+      <li><strong>Sueño más profundo y reparador</strong> — L-Teanina puede ayudar a mantener ciclos de sueño normales</li>
+      <li><strong>Relajación y enfoque</strong> — Aminoácido suave que favorece la compostura y la claridad mental</li>
+      <li><strong>Vitamina D</strong> — Ayuda al cuerpo a utilizar el magnesio correctamente</li>
+      <li><strong>Fosfatidilserina</strong> — Complementa el papel del magnesio y apoya la sinergia de nutrientes</li>
+    </ul>
+    <div class="tags"><span class="tag">Glicinato Mg</span><span class="tag">Citrato Mg</span><span class="tag">Óxido Mg</span><span class="tag">Malato Mg</span><span class="tag">Ashwagandha</span><span class="tag">L-Teanina</span><span class="tag">Vitamina D</span></div>
+    <div class="stats"><div class="sb"><strong>120</strong><span>Cápsulas Vegetales</span></div><div class="sb"><strong>15-en-1</strong><span>Fórmula</span></div><div class="sb"><strong>Extra</strong><span>Fuerza</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Estrés y ansiedad</li>
+        <li>Insomnio / Dificultad para dormir</li>
+        <li>Calambres musculares</li>
+        <li>Fatiga crónica</li>
+        <li>Migrañas y dolores de cabeza</li>
+        <li>Debilidad ósea / Osteoporosis</li>
+        <li>Tensión y rigidez muscular</li>
+        <li>Déficit de concentración</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Magnesio%20Complejo%2015-en-1" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- MENOPAUSIA (4-6) -->
+<section class="ps t-meno" id="meno">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img2" src="img/4.jpg" alt="Menopausia"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage(&#39;img2&#39;,&#39;img/4.jpg&#39;,this)"><img src="img/4.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img2&#39;,&#39;img/5.jpg&#39;,this)"><img src="img/5.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img2&#39;,&#39;img/6.jpg&#39;,this)"><img src="img/6.jpg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">Megneta®</div>
+    <h2 class="ptitle">Alivio Total de la Menopausia</h2>
+    <p class="pprice">Gs. 90.000 <span>IVA incl.</span></p>
+    <p class="pdesc">Suplemento todo en uno con 21,000mg de ingredientes premium. Fórmula 10-en-1 respaldada por la ciencia, diseñada específicamente para el cuidado integral de la menopausia.</p>
+    <ul class="benefits">
+      <li><strong>Cimicifuga racemosa (9,000mg, Extracto 30:1)</strong> — Alivia sofocos, sudores nocturnos y cambios de humor</li>
+      <li><strong>Primavera de la tarde (9,000mg, Extracto 30:1)</strong> — Apoya la salud menstrual y reduce sofocos</li>
+      <li><strong>Vitex agnus-castus (9,000mg, Extracto 30:1)</strong> — Equilibrio hormonal natural</li>
+      <li><strong>Ashwagandha (9,000mg, Extracto 30:1)</strong> — Combate el estrés diario y la fatiga</li>
+      <li><strong>DIM (400mg)</strong> — Potente antioxidante para el balance hormonal</li>
+      <li><strong>Semilla de Lino (3,000mg, Extracto 30:1)</strong> — Rico en fitoestrógenos naturales</li>
+      <li><strong>Vitaminas B6, D3 y Zinc</strong> — Apoyo nutricional completo para la mujer</li>
+    </ul>
+    <div class="tags"><span class="tag">Cimicifuga</span><span class="tag">Vitex</span><span class="tag">Ashwagandha</span><span class="tag">DIM 400mg</span><span class="tag">Semilla Lino</span><span class="tag">Vitamina B6</span><span class="tag">Zinc</span></div>
+    <div class="stats"><div class="sb"><strong>60</strong><span>Cápsulas</span></div><div class="sb"><strong>21,000mg</strong><span>Premium</span></div><div class="sb"><strong>10-en-1</strong><span>Fórmula</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Sofocos y sudores nocturnos</li>
+        <li>Cambios de humor / Irritabilidad</li>
+        <li>Desequilibrio hormonal</li>
+        <li>Fatiga y falta de energía</li>
+        <li>Insomnio por menopausia</li>
+        <li>Sequedad vaginal</li>
+        <li>Síntomas de perimenopausia</li>
+        <li>Ansiedad y estrés hormonal</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Alivio%20Total%20de%20la%20Menopausia" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- NERVIO CIÁTICO (7-9) -->
+<section class="ps t-ciat" id="ciat">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img3" src="img/7.jpeg" alt="Ciático"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage(&#39;img3&#39;,&#39;img/7.jpeg&#39;,this)"><img src="img/7.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img3&#39;,&#39;img/8.jpeg&#39;,this)"><img src="img/8.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img3&#39;,&#39;img/9.jpeg&#39;,this)"><img src="img/9.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">Pslalae® / Tecepec®</div>
+    <h2 class="ptitle">Salud del Nervio Ciático</h2>
+    <p class="pprice">Gs. 140.000 <span>IVA incl.</span></p>
+    <p class="pdesc">Fórmula con 18 ingredientes clave: vitaminas esenciales, antioxidantes y extractos de minerales. Apoyo nervioso completo para un cuerpo sano y relajado todos los días.</p>
+    <ul class="benefits">
+      <li><strong>Complejo Vitamina B (B1, B2, B6, B12)</strong> — Apoyo esencial para la función nerviosa y energía celular</li>
+      <li><strong>Vitaminas C, D3 y E</strong> — Protección antioxidante y fortalecimiento del sistema inmune</li>
+      <li><strong>Acetil-L-Carnitina</strong> — Favorece la regeneración y protección de las células nerviosas</li>
+      <li><strong>Ácido Alfa Lipoico</strong> — Potente antioxidante que apoya la salud del sistema nervioso</li>
+      <li><strong>Benfotiamina</strong> — Forma avanzada de vitamina B1 para mejor absorción nerviosa</li>
+      <li><strong>L-Arginina HCL y Magnesio</strong> — Mejora la circulación y relajación muscular</li>
+      <li><strong>Mezcla Patentada</strong> — Polvo de Albizia, Pasiflora, Raíz de Escutelaria China y Paja de Avena</li>
+      <li><strong>Modo de uso:</strong> Primeros 3 meses: 2 cápsulas AM + 2 PM. Después: 1 AM + 1 PM. Continuar 3 a 6 meses para resultados óptimos</li>
+    </ul>
+    <div class="tags"><span class="tag">Vitaminas B</span><span class="tag">Benfotiamina</span><span class="tag">Ácido Alfa Lipoico</span><span class="tag">Acetil-L-Carnitina</span><span class="tag">Magnesio</span><span class="tag">Folato</span><span class="tag">Pasiflora</span></div>
+    <div class="stats"><div class="sb"><strong>120</strong><span>Cápsulas</span></div><div class="sb"><strong>18</strong><span>Ingredientes Clave</span></div><div class="sb"><strong>GMP / ISO</strong><span>Certificado</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Ciática / Dolor del nervio ciático</li>
+        <li>Neuropatía periférica</li>
+        <li>Hormigueo y adormecimiento</li>
+        <li>Lumbalgia / Dolor lumbar</li>
+        <li>Inflamación nerviosa</li>
+        <li>Hernia discal (alivio sintomático)</li>
+        <li>Espasmos musculares</li>
+        <li>Dolor neuropático crónico</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20producto%20para%20Nervio%20Ci%C3%A1tico" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- ORÉGANO (10-12) -->
+<section class="ps t-oreg" id="oreg">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img4" src="img/10.jpeg" alt="Orégano"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage(&#39;img4&#39;,&#39;img/10.jpeg&#39;,this)"><img src="img/10.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img4&#39;,&#39;img/11.jpeg&#39;,this)"><img src="img/11.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img4&#39;,&#39;img/12.jpeg&#39;,this)"><img src="img/12.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">JRHSQY</div>
+    <h2 class="ptitle">Aceite de Orégano con Semilla Negra</h2>
+    <p class="pprice">Gs. 150.000 <span>IVA incl.</span></p>
+    <p class="pdesc">Cápsulas blandas con 6,000mg de aceite de orégano (equivalencia herbaria por porción) y 200mg de aceite de semilla negra. Complejo 2 en 1 ultra alto en carvacrol y timoquinona.</p>
+    <ul class="benefits">
+      <li><strong>6,000mg de Aceite de Orégano</strong> — Extracto 20:1 de aceite fresco para máxima potencia</li>
+      <li><strong>200mg de Aceite de Semilla Negra</strong> — Complejo 2 en 1 con timoquinona de ocurrencia natural</li>
+      <li><strong>Retiene 165mg de Carvacrol</strong> — Compuesto activo principal para defensa inmunológica</li>
+      <li><strong>Ingredientes herbales confiables</strong> — Fórmula natural sin gluten y sin lácteos</li>
+      <li><strong>300 cápsulas blandas</strong> — Suministro para 150 porciones totales</li>
+    </ul>
+    <div class="tags"><span class="tag">6,000mg Orégano</span><span class="tag">200mg Semilla Negra</span><span class="tag">165mg Carvacrol</span><span class="tag">Timoquinona</span><span class="tag">Sin Gluten</span><span class="tag">Sin Lácteos</span></div>
+    <div class="stats"><div class="sb"><strong>300</strong><span>Softgel</span></div><div class="sb"><strong>150</strong><span>Porciones</span></div><div class="sb"><strong>165mg</strong><span>Carvacrol</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Infecciones respiratorias / Gripe</li>
+        <li>Resfriado común</li>
+        <li>Sistema inmune debilitado</li>
+        <li>Infecciones por hongos (Candidiasis)</li>
+        <li>Inflamación general</li>
+        <li>Problemas digestivos / Parásitos</li>
+        <li>Alergias estacionales</li>
+        <li>Infecciones bacterianas leves</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Aceite%20de%20Or%C3%A9gano%20con%20Semilla%20Negra" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- GLUCOSAMINA (13-15) - 90 CÁPSULAS -->
+<section class="ps t-glu" id="glu">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img5" src="img/13.jpeg" alt="Glucosamina"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage(&#39;img5&#39;,&#39;img/13.jpeg&#39;,this)"><img src="img/13.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img5&#39;,&#39;img/14.jpeg&#39;,this)"><img src="img/14.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img5&#39;,&#39;img/15.jpeg&#39;,this)"><img src="img/15.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">HiPlus® — From Nature with Gift</div>
+    <h2 class="ptitle">Glucosamina + Condroitina + MSM</h2>
+    <p class="pprice">Gs. 90.000 <span>IVA incl.</span></p>
+    <p class="pdesc">Fórmula articular de triple acción para un estilo de vida activo. Ingredientes naturales sin rellenos ni ingredientes artificiales. Ideal para entusiastas del fitness, profesionales ocupados y adultos mayores.</p>
+    <ul class="benefits">
+      <li><strong>Glucosamina Sulfato de Potasio 1,500mg</strong> — Libre de mariscos, apoya la reconstrucción del cartílago</li>
+      <li><strong>Boswellia Extract 200mg (65% Ácido Boswélico)</strong> — Potente antiinflamatorio natural</li>
+      <li><strong>Condroitina Sulfato 150mg</strong> — Mantiene la elasticidad y amortiguación articular</li>
+      <li><strong>Cúrcuma 4:1 Extract 150mg</strong> — Curcumina con acción antiinflamatoria comprobada</li>
+      <li><strong>MSM (Metilsulfonilmetano) 25mg</strong> — Apoya la flexibilidad y comodidad articular</li>
+      <li><strong>Quercetina, L-Metionina y Bromelina</strong> — Antioxidantes que complementan la fórmula</li>
+      <li><strong>Pruebas de terceros</strong> — Certificación GMP e ISO, sin gluten, sin lácteos, libre de mariscos</li>
+      <li><strong>Fácil de tragar</strong> — Diseñado para máxima comodidad y absorción</li>
+    </ul>
+    <div class="tags"><span class="tag">Glucosamina 1500mg</span><span class="tag">Condroitina 150mg</span><span class="tag">MSM</span><span class="tag">Cúrcuma 4:1</span><span class="tag">Boswellia 65%</span><span class="tag">Quercetina</span><span class="tag">Bromelina</span></div>
+    <div class="stats"><div class="sb"><strong>90</strong><span>Cápsulas (30 días)</span></div><div class="sb"><strong>Triple</strong><span>Acción</span></div><div class="sb"><strong>GMP/ISO</strong><span>Certificado</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Artrosis / Osteoartritis</li>
+        <li>Dolor articular crónico</li>
+        <li>Desgaste de cartílago</li>
+        <li>Rigidez en rodillas y caderas</li>
+        <li>Artritis reumatoide (alivio)</li>
+        <li>Inflamación articular</li>
+        <li>Movilidad reducida</li>
+        <li>Lesiones deportivas articulares</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20la%20Glucosamina%20%2B%20Condroitina%20%2B%20MSM" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- ASHWAGANDHA GOMITAS (16-17) -->
+<section class="ps t-ash" id="ash">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img6" src="img/16.jpeg" alt="Ashwagandha"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage(&#39;img6&#39;,&#39;img/16.jpeg&#39;,this)"><img src="img/16.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img6&#39;,&#39;img/17.jpeg&#39;,this)"><img src="img/17.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">HiPlus® — From Nature with Gift</div>
+    <h2 class="ptitle">Gomitas de Ashwagandha KSM-66®</h2>
+    <p class="pprice">Gs. 60.000 <span>IVA incl.</span></p>
+    <p class="pdesc">Gomitas veganas elaboradas con Ashwagandha KSM-66® altamente biodisponible y clínicamente probada, combinada con Vitamina D. Sabor Mixed Berry. Fórmula Relax · Restore · Unwind.</p>
+    <ul class="benefits">
+      <li><strong>Mantener calidad de vida</strong> — KSM-66® es la forma más estudiada y biodisponible de Ashwagandha</li>
+      <li><strong>Promover calidad de sueño</strong> — Ayuda a relajar la mente para un descanso reparador</li>
+      <li><strong>Apoyar memoria y concentración</strong> — Mejora el enfoque mental y la claridad cognitiva</li>
+      <li><strong>Vitamina D incluida</strong> — Complementa la acción adaptógena para mayor bienestar</li>
+      <li><strong>100% Plant-Based y Vegano</strong> — Sin gluten, Non-GMO, clínicamente probado</li>
+      <li><strong>Sabor delicioso Mixed Berry</strong> — 60 gomitas, fácil de incorporar a tu rutina diaria</li>
+    </ul>
+    <div class="tags"><span class="tag">KSM-66®</span><span class="tag">Raíz Pura</span><span class="tag">Vitamina D</span><span class="tag">Plant-Based</span><span class="tag">Vegano</span><span class="tag">Non-GMO</span><span class="tag">Sin Gluten</span></div>
+    <div class="stats"><div class="sb"><strong>60</strong><span>Gomitas</span></div><div class="sb"><strong>KSM-66®</strong><span>Clínicamente Probado</span></div><div class="sb"><strong>Orgánico</strong><span>Pure &amp; Organic</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Estrés crónico y ansiedad</li>
+        <li>Fatiga suprarrenal</li>
+        <li>Insomnio / Mala calidad de sueño</li>
+        <li>Falta de concentración</li>
+        <li>Cortisol elevado</li>
+        <li>Baja energía y vitalidad</li>
+        <li>Debilidad del sistema inmune</li>
+        <li>Desequilibrio emocional</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesan%20las%20Gomitas%20de%20Ashwagandha%20KSM-66" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- VITAMINA D3 & K2 (18-20) -->
+<section class="ps t-vitdk" id="vitdk">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img7" src="img/18.jpg" alt="Vitamina D3 &amp; K2"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage(&#39;img7&#39;,&#39;img/18.jpg&#39;,this)"><img src="img/18.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img7&#39;,&#39;img/19.jpg&#39;,this)"><img src="img/19.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img7&#39;,&#39;img/20.jpg&#39;,this)"><img src="img/20.jpg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">VEV Nutrition</div>
+    <h2 class="ptitle">Complejo Vitamina D3 &amp; K2</h2>
+    <p class="pprice">Gs. 80.000 <span>IVA incl.</span></p>
+    <p class="pdesc">Fórmula 2 en 1 que combina Vitamina D3 (1,000 IU) y Vitamina K2 (100 mcg) en cápsulas veganas. Las vitaminas K2 y D3 favorecen la producción y absorción de calcio para potenciar tu programa de fitness y fortalecer tus huesos.</p>
+    <ul class="benefits">
+      <li><strong>Vitamina D3 (1,000 IU)</strong> — Favorece la absorción de calcio y fortalece el sistema inmunológico</li>
+      <li><strong>Vitamina K2 (100 mcg)</strong> — Dirige el calcio hacia los huesos y dientes, evitando depósitos en arterias</li>
+      <li><strong>Fortalece los huesos</strong> — Sinergia D3+K2 para una estructura ósea más resistente y saludable</li>
+      <li><strong>Apoyo a la recuperación</strong> — Ayuda en la recuperación muscular y esquelética después del ejercicio</li>
+      <li><strong>Induce absorción de calcio</strong> — Potencia la reabsorción mineral para huesos y articulaciones fuertes</li>
+      <li><strong>Soporte muscular e inmunológico</strong> — Apoya la función muscular y las defensas del organismo</li>
+    </ul>
+    <div class="tags"><span class="tag">Vitamina D3</span><span class="tag">Vitamina K2</span><span class="tag">1,000 IU D3</span><span class="tag">100 mcg K2</span><span class="tag">Cápsulas Veganas</span><span class="tag">2 en 1</span></div>
+    <div class="stats"><div class="sb"><strong>60</strong><span>Cápsulas Veganas</span></div><div class="sb"><strong>2-en-1</strong><span>Fórmula</span></div><div class="sb"><strong>D3 + K2</strong><span>Sinergia Ósea</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Debilidad ósea / Osteoporosis</li>
+        <li>Déficit de vitamina D</li>
+        <li>Mala absorción de calcio</li>
+        <li>Recuperación muscular lenta</li>
+        <li>Sistema inmune debilitado</li>
+        <li>Fragilidad dental</li>
+        <li>Fatiga y falta de energía</li>
+        <li>Salud cardiovascular</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Complejo%20Vitamina%20D3%20%26%20K2" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- MULTIVITAMÍNICO NIÑOS (21-23) -->
+<section class="ps t-kids" id="kids">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img8" src="img/36.jpeg" alt="Kids Multivitamin"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage('img8','img/36.jpeg',this)"><img src="img/36.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img8','img/37.jpeg',this)"><img src="img/37.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img8','img/38.jpeg',this)"><img src="img/38.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">BestNutri</div>
+    <h2 class="ptitle">Multivitamínico para Niños</h2>
+    <p class="pdesc">Nutrición respaldada por la ciencia para niños en crecimiento. Fórmula esencial con vitaminas clave para el soporte cerebral y el sistema inmunológico. Natural, sin ingredientes artificiales — seguro y delicioso para niños de 4 a 12 años.</p>
+    <ul class="benefits">
+      <li><strong>Vitamina A (600mcg)</strong> — Apoya la visión y el desarrollo celular saludable</li>
+      <li><strong>Vitamina C (60mg)</strong> — Refuerza las defensas naturales del organismo</li>
+      <li><strong>Vitamina D3 (10mcg)</strong> — Fortalece huesos y dientes en crecimiento</li>
+      <li><strong>Vitamina E (6.75mg)</strong> — Protección antioxidante para las células</li>
+      <li><strong>Complejo Vitamina B (B1, B2, B3, B6, B12)</strong> — Energía, función cerebral y desarrollo neurológico</li>
+      <li><strong>Soporte cerebral e inmunológico</strong> — Fórmula diseñada para la concentración y la protección diaria</li>
+      <li><strong>Modo de uso:</strong> 1 tableta al día para niños de 4 a 12 años</li>
+    </ul>
+    <div class="tags"><span class="tag">Vitamina A</span><span class="tag">Vitamina C</span><span class="tag">Vitamina D3</span><span class="tag">Vitamina E</span><span class="tag">Complejo B</span><span class="tag">Sin Artificiales</span></div>
+    <div class="stats"><div class="sb"><strong>60</strong><span>Tabletas</span></div><div class="sb"><strong>9</strong><span>Vitaminas Esenciales</span></div><div class="sb"><strong>4-12</strong><span>Años</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Déficit de vitaminas en niños</li>
+        <li>Baja concentración escolar</li>
+        <li>Sistema inmune debilitado</li>
+        <li>Falta de energía y vitalidad</li>
+        <li>Crecimiento óseo saludable</li>
+        <li>Alimentación selectiva / incompleta</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Multivitam%C3%ADnico%20para%20Ni%C3%B1os%20BestNutri" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- PROBIÓTICO MUJER (24-26) -->
+<section class="ps t-prob" id="prob">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img9" src="img/21.jpeg" alt="Probiótico Mujer"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage('img9','img/21.jpeg',this)"><img src="img/21.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img9','img/22.jpeg',this)"><img src="img/22.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img9','img/23.jpeg',this)"><img src="img/23.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">Ahete</div>
+    <h2 class="ptitle">Probiótico + Prebiótico — Enzimas Digestivas para Mujer</h2>
+    <p class="pdesc">Fórmula All-in-1 diseñada exclusivamente para mujeres. Combina probióticos, prebióticos y enzimas digestivas para el cuidado intestinal diario con una proporción científicamente equilibrada para una nutrición más balanceada.</p>
+    <ul class="benefits">
+      <li><strong>Nutri-Fructor Fibra Dietética 3 (Fructooligosacárido) 500mg</strong> — Prebiótico que alimenta las bacterias beneficiosas del intestino</li>
+      <li><strong>Uni-BactCF.15™ Probiótico 2 (Bacillus Coagulans) 75mg</strong> — Cepa probiótica resistente que llega viva al intestino</li>
+      <li><strong>Enzima Lactasa LPH (Galactosidasa) 8mg</strong> — Facilita la digestión de lácteos y reduce molestias</li>
+      <li><strong>Diseñado exclusivamente para mujeres</strong> — Apoya la salud femenina, el sistema inmunológico y la digestión</li>
+      <li><strong>Cuidado intestinal diario</strong> — Cuida la microecología intestinal de forma natural</li>
+      <li><strong>Modo de uso:</strong> Tomar 2 cápsulas una vez al día con agua tibia</li>
+    </ul>
+    <div class="tags"><span class="tag">Probiótico</span><span class="tag">Prebiótico</span><span class="tag">Enzimas Digestivas</span><span class="tag">Bacillus Coagulans</span><span class="tag">FOS 500mg</span><span class="tag">Lactasa</span><span class="tag">Para Mujer</span></div>
+    <div class="stats"><div class="sb"><strong>60</strong><span>Cápsulas</span></div><div class="sb"><strong>All-in-1</strong><span>Fórmula</span></div><div class="sb"><strong>Exclusivo</strong><span>Para Mujer</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Hinchazón y gases</li>
+        <li>Digestión lenta o pesada</li>
+        <li>Intolerancia a la lactosa</li>
+        <li>Flora intestinal desequilibrada</li>
+        <li>Estreñimiento</li>
+        <li>Sistema inmune debilitado</li>
+        <li>Molestias digestivas frecuentes</li>
+        <li>Salud intestinal femenina</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Probi%C3%B3tico%20%2B%20Prebi%C3%B3tico%20para%20Mujer%20Ahete" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- EVOLUTION & PROBIOTICS (27-29) -->
+<section class="ps t-evo" id="evo">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img10" src="img/24.jpeg" alt="Evolution Probiotics"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage('img10','img/24.jpeg',this)"><img src="img/24.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img10','img/25.jpeg',this)"><img src="img/25.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img10','img/26.jpeg',this)"><img src="img/26.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">Ahete</div>
+    <h2 class="ptitle">Evolution & Probiotics — Soporte Wellness Integral</h2>
+    <p class="pdesc">Cápsulas de evolución y probióticos con 45,000mg por frasco. Fórmula avanzada con 3 evoluciones propietarias y 3 probióticos para soporte de salud intestinal, estabilización de azúcar corporal y reducción de antojos. Biodisponibilidad mejorada y liberación sostenida.</p>
+    <ul class="benefits">
+      <li><strong>Evolution & Probiotics Core 500mg</strong> — Simula la evolución natural y hormonas probióticas</li>
+      <li><strong>Simbióticos 250mg</strong> — Combinación sinérgica de prebióticos y probióticos</li>
+      <li><strong>Eriocitrina 200mg</strong> — Protección compuesta con acción antioxidante</li>
+      <li><strong>Extracto de Corteza de Canela 100mg</strong> — Soporte digestivo natural</li>
+      <li><strong>Biodisponibilidad mejorada</strong> — Absorción optimizada, fórmula suave para el sistema digestivo</li>
+      <li><strong>Liberación sostenida</strong> — Entrega constante de nutrientes durante todo el día</li>
+      <li><strong>Ingredientes de calidad premium</strong> — Componentes seleccionados por pureza y efectividad</li>
+    </ul>
+    <div class="tags"><span class="tag">Probióticos 3x</span><span class="tag">Simbióticos 250mg</span><span class="tag">Eriocitrina</span><span class="tag">Canela</span><span class="tag">45,000mg</span><span class="tag">Liberación Sostenida</span></div>
+    <div class="stats"><div class="sb"><strong>60</strong><span>Cápsulas</span></div><div class="sb"><strong>45,000mg</strong><span>Por Frasco</span></div><div class="sb"><strong>3+3</strong><span>Evolución + Probiótico</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Salud digestiva e intestinal</li>
+        <li>Antojos y control de apetito</li>
+        <li>Circulación y salud cardiovascular</li>
+        <li>Fatiga y falta de energía</li>
+        <li>Azúcar corporal inestable</li>
+        <li>Flora intestinal comprometida</li>
+        <li>Vitalidad general del cuerpo</li>
+        <li>Bienestar integral diario</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Evolution%20%26%20Probiotics%20Ahete" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- OMEGA 3-6-9 (30-32) -->
+<section class="ps t-omega" id="omega">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img11" src="img/27.jpeg" alt="Omega 3-6-9"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage('img11','img/27.jpeg',this)"><img src="img/27.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img11','img/28.jpeg',this)"><img src="img/28.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img11','img/29.jpeg',this)"><img src="img/29.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">Cold Mount®</div>
+    <h2 class="ptitle">Omega 3-6-9 Triple Omega + Cúrcuma</h2>
+    <p class="pdesc">Softgels prensados en frío con triple omega y cúrcuma emulsificada. Ingredientes cuidadosamente seleccionados para la salud cardiovascular, cerebral y digestiva. Testeado por terceros, certificado GMP, libre de soya, gluten, lácteos, conservantes, colorantes y azúcar.</p>
+    <ul class="benefits">
+      <li><strong>Aceite de Pescado (Omega 3)</strong> — Ácidos grasos EPA y DHA para corazón y cerebro</li>
+      <li><strong>Aceite de Linaza (Omega 9)</strong> — Fuente vegetal de ácido alfa-linolénico (ALA)</li>
+      <li><strong>Aceite de Semilla de Girasol (Omega 6)</strong> — Ácido linoleico para salud celular</li>
+      <li><strong>Cúrcuma Emulsificada</strong> — Potente antiinflamatorio natural con mejor absorción</li>
+      <li><strong>Prensado en frío</strong> — Preserva la integridad y potencia de los aceites naturales</li>
+      <li><strong>Libre de alérgenos</strong> — Sin soya, sin gluten, sin lácteos, sin conservantes, sin colorantes, sin azúcar</li>
+      <li><strong>Certificaciones</strong> — GMP-compliant, testeado por terceros independientes</li>
+    </ul>
+    <div class="tags"><span class="tag">Omega 3</span><span class="tag">Omega 6</span><span class="tag">Omega 9</span><span class="tag">Cúrcuma</span><span class="tag">Cold Pressed</span><span class="tag">Sin Gluten</span><span class="tag">GMP</span></div>
+    <div class="stats"><div class="sb"><strong>100</strong><span>Softgels</span></div><div class="sb"><strong>Triple</strong><span>Omega</span></div><div class="sb"><strong>Cold</strong><span>Pressed</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Salud cardiovascular</li>
+        <li>Colesterol y triglicéridos</li>
+        <li>Función cerebral y memoria</li>
+        <li>Inflamación general</li>
+        <li>Digestión lenta</li>
+        <li>Articulaciones rígidas</li>
+        <li>Piel seca y sin brillo</li>
+        <li>Salud ocular</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Omega%203-6-9%20Cold%20Mount" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- COLÁGENO MEGNETA (33-35) -->
+<section class="ps t-col" id="col">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img12" src="img/30.jpeg" alt="Colágeno Megneta"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage('img12','img/30.jpeg',this)"><img src="img/30.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img12','img/31.jpeg',this)"><img src="img/31.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img12','img/32.jpeg',this)"><img src="img/32.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">Megneta®</div>
+    <h2 class="ptitle">Colágeno Multitype I, II, III, V, X con Biotina</h2>
+    <p class="pdesc">Complejo energético para mujer con 2,230mg de extra fuerza. Fórmula All-in-One de alta absorción con 5 tipos de colágeno superfood, biotina, vitamina C, zinc y ácido hialurónico. Ideal para piel, cabello, uñas y flexibilidad. Testado en laboratorio.</p>
+    <ul class="benefits">
+      <li><strong>Tipo I — Tendones, ligamentos, piel y flexibilidad</strong></li>
+      <li><strong>Tipo II — Movilidad natural y estilo de vida activo</strong></li>
+      <li><strong>Tipo III — Circulación sanguínea, piel, pulmones y salud intestinal</strong></li>
+      <li><strong>Tipo V — Cabello saludable y calidad del tejido</strong></li>
+      <li><strong>Tipo X — Diseñado para tejido, cartílago y bienestar corporal activo</strong></li>
+      <li><strong>Ingredientes premium</strong> — Colágeno bovino hidrolizado, colágeno de pescado, colágeno de pollo, membrana de cáscara de huevo, biotina y ácido hialurónico</li>
+      <li><strong>Brillo desde adentro</strong> — Mantiene la suavidad de la piel, promueve cabello sano y uñas protegidas</li>
+    </ul>
+    <div class="tags"><span class="tag">Colágeno 5 Tipos</span><span class="tag">Biotina</span><span class="tag">Vitamina C</span><span class="tag">Zinc</span><span class="tag">Ácido Hialurónico</span><span class="tag">2,230mg</span><span class="tag">Alta Absorción</span></div>
+    <div class="stats"><div class="sb"><strong>90</strong><span>Cápsulas</span></div><div class="sb"><strong>2,230mg</strong><span>Extra Fuerza</span></div><div class="sb"><strong>5 Tipos</strong><span>Colágeno</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Piel opaca y sin elasticidad</li>
+        <li>Cabello débil y sin brillo</li>
+        <li>Uñas quebradizas</li>
+        <li>Articulaciones rígidas</li>
+        <li>Pérdida de colágeno por edad</li>
+        <li>Arrugas y líneas de expresión</li>
+        <li>Flexibilidad reducida</li>
+        <li>Salud del cartílago</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Col%C3%A1geno%20Multitype%20Megneta" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- PÉPTIDOS DE COLÁGENO (36-37) -->
+<section class="ps t-colp" id="colp">
+<div class="pi">
+  <div class="gallery">
+    <div class="gmain"><img id="img13" src="img/33.jpeg" alt="Péptidos de Colágeno"></div>
+    <div class="gthumbs">
+      <div class="thumb active" onclick="changeImage('img13','img/33.jpeg',this)"><img src="img/33.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img13','img/34.jpeg',this)"><img src="img/34.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img13','img/35.jpeg',this)"><img src="img/35.jpeg"></div>
+    </div>
+  </div>
+  <div>
+    <div class="pbrand">Fórmula Profesional</div>
+    <h2 class="ptitle">Péptidos de Colágeno Tipo I, II, III, V, X</h2>
+    <p class="pdesc">Fórmula profesional con 1,800mg de colágeno por porción. 5 tipos de colágeno provenientes de res, pollo, pescado silvestre y cáscara de huevo. Soporte total para músculos, huesos, piel, cabello, uñas, recuperación y rendimiento.</p>
+    <ul class="benefits">
+      <li><strong>1,800mg de Colágeno por porción</strong> — Dosis profesional para máximos resultados</li>
+      <li><strong>Tipo I &amp; III — Salud de piel y cabello</strong> — Los tipos más abundantes en el cuerpo humano</li>
+      <li><strong>Tipo II — Salud ósea</strong> — Fortalece la estructura ósea y articular</li>
+      <li><strong>Tipo V — Soporte de tejido y elasticidad</strong> — Mejora la flexibilidad y la calidad del tejido</li>
+      <li><strong>Tipo X — Soporte del cartílago</strong> — Esencial para la salud articular y cartilaginosa</li>
+      <li><strong>Fuentes premium</strong> — Res, pollo, pescado silvestre y cáscara de huevo para perfil completo</li>
+      <li><strong>Impulso corporal total</strong> — Apoya músculos, huesos, recuperación y rendimiento deportivo</li>
+    </ul>
+    <div class="tags"><span class="tag">1,800mg</span><span class="tag">5 Tipos Colágeno</span><span class="tag">Res</span><span class="tag">Pollo</span><span class="tag">Pescado Silvestre</span><span class="tag">Cáscara de Huevo</span><span class="tag">Fórmula Profesional</span></div>
+    <div class="stats"><div class="sb"><strong>90</strong><span>Cápsulas</span></div><div class="sb"><strong>1,800mg</strong><span>Por Porción</span></div><div class="sb"><strong>5 Tipos</strong><span>Colágeno</span></div></div>
+    <div class="symptoms">
+      <div class="symptoms-title">🩺 Puede ayudar con:</div>
+      <ul class="symptoms-list">
+        <li>Recuperación muscular lenta</li>
+        <li>Debilidad ósea</li>
+        <li>Piel sin firmeza ni elasticidad</li>
+        <li>Cabello y uñas frágiles</li>
+        <li>Desgaste articular y cartílago</li>
+        <li>Rendimiento deportivo</li>
+        <li>Envejecimiento de la piel</li>
+        <li>Flexibilidad reducida</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesan%20los%20P%C3%A9ptidos%20de%20Col%C3%A1geno%20Tipo%20I%2C%20II%2C%20III%2C%20V%2C%20X" class="cta-whatsapp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Consultar / Comprar por WhatsApp
+    </a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>Fórmulas respaldadas por la ciencia · Ingredientes de calidad premium<br>Estas afirmaciones no han sido evaluadas por la FDA. Este producto no está destinado a diagnosticar, tratar, curar o prevenir ninguna enfermedad.</p>
+  <p style="margin-top:16px">© 2025 NaturaVital — Suplementos para tu bienestar integral</p>
+</footer>
+
+<script>
+function changeImage(mainId, src, el) {
+    document.getElementById(mainId).src = src;
+    let parent = el.parentNode;
+    let thumbs = parent.querySelectorAll('.thumb');
+    thumbs.forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+}
+</script>
+
+</body></html>
