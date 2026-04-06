@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://catalogosuplementos.netlify.app/ -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,6 +91,47 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);fon
 .t-colp .benefits li::before{color:#00796B}
 .t-colp .symptoms{border-left-color:#00796B}
 footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;font-size:13px}
+/* Banner promo */
+.promo-bar{background:var(--gold);color:white;text-align:center;padding:10px 16px;font-size:14px;font-weight:600;letter-spacing:.3px;position:relative}
+.promo-bar a{color:white;text-decoration:underline;margin-left:8px}
+/* Buscador */
+.search-wrap{background:white;border-bottom:1px solid #eee;padding:14px 20px;display:flex;justify-content:center}
+.search-box{display:flex;align-items:center;gap:10px;width:100%;max-width:500px;background:var(--cream);border:1.5px solid #ddd;border-radius:30px;padding:8px 16px;transition:border-color .2s}
+.search-box:focus-within{border-color:var(--gold)}
+.search-box input{border:none;background:transparent;font-size:15px;font-family:'Jost',sans-serif;color:var(--text);width:100%;outline:none}
+.search-box input::placeholder{color:#aaa}
+.search-box svg{flex-shrink:0;color:#aaa}
+.no-results{display:none;text-align:center;padding:60px 20px;color:#999;font-size:16px}
+/* Carrito */
+.cart-add-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding:13px 24px;background:var(--forest);color:white;border:none;border-radius:14px;font-size:15px;font-weight:600;font-family:'Jost',sans-serif;cursor:pointer;width:100%;transition:all .2s;letter-spacing:.2px}
+.cart-add-btn:hover{background:#2a5a44;transform:translateY(-1px)}
+.cart-add-btn.added{background:#4CAF50}
+/* Drawer carrito */
+.cart-fab{position:fixed;bottom:80px;right:20px;background:var(--forest);color:white;border:none;border-radius:50%;width:54px;height:54px;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);z-index:200;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.cart-fab:hover{transform:scale(1.1)}
+.cart-badge{position:absolute;top:-4px;right:-4px;background:var(--gold);color:white;border-radius:50%;width:20px;height:20px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;display:none}
+.cart-drawer{position:fixed;right:-360px;top:0;width:340px;height:100%;background:white;z-index:300;box-shadow:-4px 0 24px rgba(0,0,0,.15);transition:right .3s ease;display:flex;flex-direction:column}
+.cart-drawer.open{right:0}
+.cart-header{padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+.cart-header h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700}
+.cart-close{background:none;border:none;font-size:22px;cursor:pointer;color:#666;line-height:1}
+.cart-items{flex:1;overflow-y:auto;padding:16px}
+.cart-empty{text-align:center;color:#aaa;padding:40px 20px;font-size:15px}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f0f0f0;gap:10px}
+.cart-item-name{font-size:14px;font-weight:500;flex:1;line-height:1.4}
+.cart-item-price{font-size:14px;font-weight:700;color:var(--forest);white-space:nowrap}
+.cart-item-remove{background:none;border:none;color:#ccc;cursor:pointer;font-size:18px;flex-shrink:0;line-height:1;padding:0 4px}
+.cart-item-remove:hover{color:#e53935}
+.cart-footer{padding:20px;border-top:1px solid #eee}
+.cart-total{display:flex;justify-content:space-between;font-weight:700;font-size:17px;margin-bottom:16px}
+.cart-checkout{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px;background:var(--whatsapp);color:white;text-decoration:none;border-radius:14px;font-size:16px;font-weight:600;transition:background .2s}
+.cart-checkout:hover{background:#1EBE5A}
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:299;display:none}
+.cart-overlay.open{display:block}
+/* Botón volver arriba */
+.back-top{position:fixed;bottom:20px;right:20px;background:var(--gold);color:white;border:none;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);z-index:200;opacity:0;transition:opacity .3s,transform .2s;pointer-events:none}
+.back-top.visible{opacity:1;pointer-events:all}
+.back-top:hover{transform:translateY(-3px)}
 /* RESPONSIVE MÓVIL */
 @media(max-width:720px){
   .pi{grid-template-columns:1fr;gap:24px}
@@ -122,14 +163,28 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
   <h1>Natura<em>Vital</em></h1>
   <p>Fórmulas de alta potencia para tu bienestar integral</p>
 </header>
+
+<!-- BANNER PROMO -->
+<div class="promo-bar">
+  🚚 Envío disponible en todo el país &nbsp;|&nbsp; 💬 Consultas por WhatsApp: <a href="https://wa.me/595987340159" target="_blank" rel="noopener">+595 987 340 159</a>
+</div>
+
+<!-- BUSCADOR POR SÍNTOMA -->
+<div class="search-wrap">
+  <div class="search-box">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="searchInput" placeholder="Buscá por síntoma o producto (ej: sueño, dolor, ansiedad…)" autocomplete="off">
+  </div>
+</div>
+<p class="no-results" id="noResults">No se encontraron productos para esa búsqueda.</p>
 <nav class="nav">
-  <a href="https://catalogosuplementos.netlify.app/#mag" class="nb">💊 Magnesio</a>
-  <a href="https://catalogosuplementos.netlify.app/#meno" class="nb">🌸 Menopausia</a>
-  <a href="https://catalogosuplementos.netlify.app/#ciat" class="nb">🔵 Ciático</a>
-  <a href="https://catalogosuplementos.netlify.app/#oreg" class="nb">🌿 Orégano</a>
-  <a href="https://catalogosuplementos.netlify.app/#glu" class="nb">🦴 Glucosamina</a>
-  <a href="https://catalogosuplementos.netlify.app/#ash" class="nb">🍃 Ashwagandha</a>
-  <a href="https://catalogosuplementos.netlify.app/#vitdk" class="nb">☀️ Vitamina D&amp;K</a>
+  <a href="#mag" class="nb">💊 Magnesio</a>
+  <a href="#meno" class="nb">🌸 Menopausia</a>
+  <a href="#ciat" class="nb">🔵 Ciático</a>
+  <a href="#oreg" class="nb">🌿 Orégano</a>
+  <a href="#glu" class="nb">🦴 Glucosamina</a>
+  <a href="#ash" class="nb">🍃 Ashwagandha</a>
+  <a href="#vitdk" class="nb">☀️ Vitamina D&amp;K</a>
   <a href="#kids" class="nb">👶 Multivitamínico Niños</a>
   <a href="#prob" class="nb">🩷 Probiótico Mujer</a>
   <a href="#evo" class="nb">✨ Evolution Probiotics</a>
@@ -142,11 +197,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-mag" id="mag">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img1" src="img/1.jpg" alt="Magnesio"></div>
+    <div class="gmain"><img id="img1" src="./img/1.jpg" alt="Magnesio"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage(&#39;img1&#39;,&#39;img/1.jpg&#39;,this)"><img src="img/1.jpg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img1&#39;,&#39;img/2.jpg&#39;,this)"><img src="img/2.jpg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img1&#39;,&#39;img/3.jpg&#39;,this)"><img src="img/3.jpg"></div>
+      <div class="thumb active" onclick="changeImage(&#39;img1&#39;,&#39;img/1.jpg&#39;,this)"><img src="./img/1.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img1&#39;,&#39;img/2.jpg&#39;,this)"><img src="./img/2.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img1&#39;,&#39;img/3.jpg&#39;,this)"><img src="./img/3.jpg"></div>
     </div>
   </div>
   <div>
@@ -177,6 +232,7 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Déficit de concentración</li>
       </ul>
     </div>
+    <button class="cart-add-btn" onclick="addToCart('Magnesio Complejo 15-en-1','Gs. 120.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Magnesio%20Complejo%2015-en-1" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -189,11 +245,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-meno" id="meno">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img2" src="img/4.jpg" alt="Menopausia"></div>
+    <div class="gmain"><img id="img2" src="./img/4.jpg" alt="Menopausia"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage(&#39;img2&#39;,&#39;img/4.jpg&#39;,this)"><img src="img/4.jpg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img2&#39;,&#39;img/5.jpg&#39;,this)"><img src="img/5.jpg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img2&#39;,&#39;img/6.jpg&#39;,this)"><img src="img/6.jpg"></div>
+      <div class="thumb active" onclick="changeImage(&#39;img2&#39;,&#39;img/4.jpg&#39;,this)"><img src="./img/4.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img2&#39;,&#39;img/5.jpg&#39;,this)"><img src="./img/5.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img2&#39;,&#39;img/6.jpg&#39;,this)"><img src="./img/6.jpg"></div>
     </div>
   </div>
   <div>
@@ -225,6 +281,7 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Ansiedad y estrés hormonal</li>
       </ul>
     </div>
+    <button class="cart-add-btn" onclick="addToCart('Alivio Total de la Menopausia','Gs. 90.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Alivio%20Total%20de%20la%20Menopausia" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -237,11 +294,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-ciat" id="ciat">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img3" src="img/7.jpeg" alt="Ciático"></div>
+    <div class="gmain"><img id="img3" src="./img/7.jpeg" alt="Ciático"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage(&#39;img3&#39;,&#39;img/7.jpeg&#39;,this)"><img src="img/7.jpeg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img3&#39;,&#39;img/8.jpeg&#39;,this)"><img src="img/8.jpeg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img3&#39;,&#39;img/9.jpeg&#39;,this)"><img src="img/9.jpeg"></div>
+      <div class="thumb active" onclick="changeImage(&#39;img3&#39;,&#39;img/7.jpeg&#39;,this)"><img src="./img/7.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img3&#39;,&#39;img/8.jpeg&#39;,this)"><img src="./img/8.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img3&#39;,&#39;img/9.jpeg&#39;,this)"><img src="./img/9.jpeg"></div>
     </div>
   </div>
   <div>
@@ -274,6 +331,7 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Dolor neuropático crónico</li>
       </ul>
     </div>
+    <button class="cart-add-btn" onclick="addToCart('Salud del Nervio Ciático','Gs. 140.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20producto%20para%20Nervio%20Ci%C3%A1tico" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -286,11 +344,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-oreg" id="oreg">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img4" src="img/10.jpeg" alt="Orégano"></div>
+    <div class="gmain"><img id="img4" src="./img/10.jpeg" alt="Orégano"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage(&#39;img4&#39;,&#39;img/10.jpeg&#39;,this)"><img src="img/10.jpeg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img4&#39;,&#39;img/11.jpeg&#39;,this)"><img src="img/11.jpeg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img4&#39;,&#39;img/12.jpeg&#39;,this)"><img src="img/12.jpeg"></div>
+      <div class="thumb active" onclick="changeImage(&#39;img4&#39;,&#39;img/10.jpeg&#39;,this)"><img src="./img/10.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img4&#39;,&#39;img/11.jpeg&#39;,this)"><img src="./img/11.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img4&#39;,&#39;img/12.jpeg&#39;,this)"><img src="./img/12.jpeg"></div>
     </div>
   </div>
   <div>
@@ -320,6 +378,7 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Infecciones bacterianas leves</li>
       </ul>
     </div>
+    <button class="cart-add-btn" onclick="addToCart('Aceite de Orégano con Semilla Negra','Gs. 150.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Aceite%20de%20Or%C3%A9gano%20con%20Semilla%20Negra" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -332,11 +391,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-glu" id="glu">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img5" src="img/13.jpeg" alt="Glucosamina"></div>
+    <div class="gmain"><img id="img5" src="./img/13.jpeg" alt="Glucosamina"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage(&#39;img5&#39;,&#39;img/13.jpeg&#39;,this)"><img src="img/13.jpeg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img5&#39;,&#39;img/14.jpeg&#39;,this)"><img src="img/14.jpeg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img5&#39;,&#39;img/15.jpeg&#39;,this)"><img src="img/15.jpeg"></div>
+      <div class="thumb active" onclick="changeImage(&#39;img5&#39;,&#39;img/13.jpeg&#39;,this)"><img src="./img/13.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img5&#39;,&#39;img/14.jpeg&#39;,this)"><img src="./img/14.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img5&#39;,&#39;img/15.jpeg&#39;,this)"><img src="./img/15.jpeg"></div>
     </div>
   </div>
   <div>
@@ -369,6 +428,7 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Lesiones deportivas articulares</li>
       </ul>
     </div>
+    <button class="cart-add-btn" onclick="addToCart('Glucosamina + Condroitina + MSM','Gs. 90.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20la%20Glucosamina%20%2B%20Condroitina%20%2B%20MSM" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -381,10 +441,10 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-ash" id="ash">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img6" src="img/16.jpeg" alt="Ashwagandha"></div>
+    <div class="gmain"><img id="img6" src="./img/16.jpeg" alt="Ashwagandha"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage(&#39;img6&#39;,&#39;img/16.jpeg&#39;,this)"><img src="img/16.jpeg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img6&#39;,&#39;img/17.jpeg&#39;,this)"><img src="img/17.jpeg"></div>
+      <div class="thumb active" onclick="changeImage(&#39;img6&#39;,&#39;img/16.jpeg&#39;,this)"><img src="./img/16.jpeg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img6&#39;,&#39;img/17.jpeg&#39;,this)"><img src="./img/17.jpeg"></div>
     </div>
   </div>
   <div>
@@ -415,6 +475,7 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Desequilibrio emocional</li>
       </ul>
     </div>
+    <button class="cart-add-btn" onclick="addToCart('Gomitas de Ashwagandha KSM-66®','Gs. 60.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesan%20las%20Gomitas%20de%20Ashwagandha%20KSM-66" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -427,11 +488,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-vitdk" id="vitdk">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img7" src="img/18.jpg" alt="Vitamina D3 &amp; K2"></div>
+    <div class="gmain"><img id="img7" src="./img/18.jpg" alt="Vitamina D3 &amp; K2"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage(&#39;img7&#39;,&#39;img/18.jpg&#39;,this)"><img src="img/18.jpg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img7&#39;,&#39;img/19.jpg&#39;,this)"><img src="img/19.jpg"></div>
-      <div class="thumb" onclick="changeImage(&#39;img7&#39;,&#39;img/20.jpg&#39;,this)"><img src="img/20.jpg"></div>
+      <div class="thumb active" onclick="changeImage(&#39;img7&#39;,&#39;img/18.jpg&#39;,this)"><img src="./img/18.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img7&#39;,&#39;img/19.jpg&#39;,this)"><img src="./img/19.jpg"></div>
+      <div class="thumb" onclick="changeImage(&#39;img7&#39;,&#39;img/20.jpg&#39;,this)"><img src="./img/20.jpg"></div>
     </div>
   </div>
   <div>
@@ -462,6 +523,7 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Salud cardiovascular</li>
       </ul>
     </div>
+    <button class="cart-add-btn" onclick="addToCart('Complejo Vitamina D3 & K2','Gs. 80.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Complejo%20Vitamina%20D3%20%26%20K2" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -474,11 +536,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-kids" id="kids">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img8" src="img/36.jpeg" alt="Kids Multivitamin"></div>
+    <div class="gmain"><img id="img8" src="./img/36.jpeg" alt="Kids Multivitamin"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage('img8','img/36.jpeg',this)"><img src="img/36.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img8','img/37.jpeg',this)"><img src="img/37.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img8','img/38.jpeg',this)"><img src="img/38.jpeg"></div>
+      <div class="thumb active" onclick="changeImage('img8','./img/36.jpeg',this)"><img src="./img/36.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img8','./img/37.jpeg',this)"><img src="./img/37.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img8','./img/38.jpeg',this)"><img src="./img/38.jpeg"></div>
     </div>
   </div>
   <div>
@@ -507,6 +569,8 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Alimentación selectiva / incompleta</li>
       </ul>
     </div>
+    <p class="pprice">Gs. 90.000 <span>IVA incl.</span></p>
+    <button class="cart-add-btn" onclick="addToCart('Multivitamínico para Niños','Gs. 90.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Multivitam%C3%ADnico%20para%20Ni%C3%B1os%20BestNutri" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -519,11 +583,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-prob" id="prob">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img9" src="img/21.jpeg" alt="Probiótico Mujer"></div>
+    <div class="gmain"><img id="img9" src="./img/21.jpeg" alt="Probiótico Mujer"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage('img9','img/21.jpeg',this)"><img src="img/21.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img9','img/22.jpeg',this)"><img src="img/22.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img9','img/23.jpeg',this)"><img src="img/23.jpeg"></div>
+      <div class="thumb active" onclick="changeImage('img9','./img/21.jpeg',this)"><img src="./img/21.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img9','./img/22.jpeg',this)"><img src="./img/22.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img9','./img/23.jpeg',this)"><img src="./img/23.jpeg"></div>
     </div>
   </div>
   <div>
@@ -553,6 +617,8 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Salud intestinal femenina</li>
       </ul>
     </div>
+    <p class="pprice">Gs. 90.000 <span>IVA incl.</span></p>
+    <button class="cart-add-btn" onclick="addToCart('Probiótico + Prebiótico — Enzimas Digestivas para Mujer','Gs. 90.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Probi%C3%B3tico%20%2B%20Prebi%C3%B3tico%20para%20Mujer%20Ahete" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -565,11 +631,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-evo" id="evo">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img10" src="img/24.jpeg" alt="Evolution Probiotics"></div>
+    <div class="gmain"><img id="img10" src="./img/24.jpeg" alt="Evolution Probiotics"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage('img10','img/24.jpeg',this)"><img src="img/24.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img10','img/25.jpeg',this)"><img src="img/25.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img10','img/26.jpeg',this)"><img src="img/26.jpeg"></div>
+      <div class="thumb active" onclick="changeImage('img10','./img/24.jpeg',this)"><img src="./img/24.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img10','./img/25.jpeg',this)"><img src="./img/25.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img10','./img/26.jpeg',this)"><img src="./img/26.jpeg"></div>
     </div>
   </div>
   <div>
@@ -600,6 +666,8 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Bienestar integral diario</li>
       </ul>
     </div>
+    <p class="pprice">Gs. 90.000 <span>IVA incl.</span></p>
+    <button class="cart-add-btn" onclick="addToCart('Evolution & Probiotics — Soporte Wellness Integral','Gs. 90.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Evolution%20%26%20Probiotics%20Ahete" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -612,11 +680,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-omega" id="omega">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img11" src="img/27.jpeg" alt="Omega 3-6-9"></div>
+    <div class="gmain"><img id="img11" src="./img/27.jpeg" alt="Omega 3-6-9"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage('img11','img/27.jpeg',this)"><img src="img/27.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img11','img/28.jpeg',this)"><img src="img/28.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img11','img/29.jpeg',this)"><img src="img/29.jpeg"></div>
+      <div class="thumb active" onclick="changeImage('img11','./img/27.jpeg',this)"><img src="./img/27.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img11','./img/28.jpeg',this)"><img src="./img/28.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img11','./img/29.jpeg',this)"><img src="./img/29.jpeg"></div>
     </div>
   </div>
   <div>
@@ -647,6 +715,8 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Salud ocular</li>
       </ul>
     </div>
+    <p class="pprice">Gs. 90.000 <span>IVA incl.</span></p>
+    <button class="cart-add-btn" onclick="addToCart('Omega 3-6-9 Triple Omega + Cúrcuma','Gs. 90.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Omega%203-6-9%20Cold%20Mount" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -659,11 +729,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-col" id="col">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img12" src="img/30.jpeg" alt="Colágeno Megneta"></div>
+    <div class="gmain"><img id="img12" src="./img/30.jpeg" alt="Colágeno Megneta"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage('img12','img/30.jpeg',this)"><img src="img/30.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img12','img/31.jpeg',this)"><img src="img/31.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img12','img/32.jpeg',this)"><img src="img/32.jpeg"></div>
+      <div class="thumb active" onclick="changeImage('img12','./img/30.jpeg',this)"><img src="./img/30.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img12','./img/31.jpeg',this)"><img src="./img/31.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img12','./img/32.jpeg',this)"><img src="./img/32.jpeg"></div>
     </div>
   </div>
   <div>
@@ -694,6 +764,8 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Salud del cartílago</li>
       </ul>
     </div>
+    <p class="pprice">Gs. 90.000 <span>IVA incl.</span></p>
+    <button class="cart-add-btn" onclick="addToCart('Colágeno Multitype I, II, III, V, X con Biotina','Gs. 90.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesa%20el%20Col%C3%A1geno%20Multitype%20Megneta" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -706,11 +778,11 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
 <section class="ps t-colp" id="colp">
 <div class="pi">
   <div class="gallery">
-    <div class="gmain"><img id="img13" src="img/33.jpeg" alt="Péptidos de Colágeno"></div>
+    <div class="gmain"><img id="img13" src="./img/33.jpeg" alt="Péptidos de Colágeno"></div>
     <div class="gthumbs">
-      <div class="thumb active" onclick="changeImage('img13','img/33.jpeg',this)"><img src="img/33.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img13','img/34.jpeg',this)"><img src="img/34.jpeg"></div>
-      <div class="thumb" onclick="changeImage('img13','img/35.jpeg',this)"><img src="img/35.jpeg"></div>
+      <div class="thumb active" onclick="changeImage('img13','./img/33.jpeg',this)"><img src="./img/33.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img13','./img/34.jpeg',this)"><img src="./img/34.jpeg"></div>
+      <div class="thumb" onclick="changeImage('img13','./img/35.jpeg',this)"><img src="./img/35.jpeg"></div>
     </div>
   </div>
   <div>
@@ -741,6 +813,8 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
         <li>Flexibilidad reducida</li>
       </ul>
     </div>
+    <p class="pprice">Gs. 90.000 <span>IVA incl.</span></p>
+    <button class="cart-add-btn" onclick="addToCart('Péptidos de Colágeno Tipo I, II, III, V, X','Gs. 90.000',this)">🛒 Agregar al carrito</button>
     <a href="https://wa.me/595987340159?text=Hola%2C%20me%20interesan%20los%20P%C3%A9ptidos%20de%20Col%C3%A1geno%20Tipo%20I%2C%20II%2C%20III%2C%20V%2C%20X" class="cta-whatsapp" target="_blank" rel="noopener">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
       Consultar / Comprar por WhatsApp
@@ -754,6 +828,34 @@ footer{background:var(--forest);color:white;text-align:center;padding:40px 20px;
   <p style="margin-top:16px">© 2025 NaturaVital — Suplementos para tu bienestar integral</p>
 </footer>
 
+<!-- OVERLAY Y DRAWER CARRITO -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>🛒 Tu pedido</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Todavía no agregaste productos.</p>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total"><span>Total estimado</span><span id="cartTotal">Gs. 0</span></div>
+    <a href="#" id="cartCheckout" class="cart-checkout" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+      Enviar pedido por WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- BOTÓN CARRITO FLOTANTE -->
+<button class="cart-fab" id="cartFab" onclick="openCart()" title="Ver carrito" style="display:none">
+  🛒
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<!-- BOTÓN VOLVER ARRIBA -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Volver arriba">↑</button>
+
 <script>
 function changeImage(mainId, src, el) {
     document.getElementById(mainId).src = src;
@@ -762,6 +864,103 @@ function changeImage(mainId, src, el) {
     thumbs.forEach(t => t.classList.remove('active'));
     el.classList.add('active');
 }
+
+/* ── BUSCADOR ── */
+const searchInput = document.getElementById('searchInput');
+const sections = document.querySelectorAll('.ps');
+const noResults = document.getElementById('noResults');
+searchInput.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  let visible = 0;
+  sections.forEach(sec => {
+    const text = sec.innerText.toLowerCase();
+    if (!q || text.includes(q)) {
+      sec.style.display = '';
+      visible++;
+    } else {
+      sec.style.display = 'none';
+    }
+  });
+  noResults.style.display = (q && visible === 0) ? 'block' : 'none';
+});
+
+/* ── CARRITO ── */
+let cart = [];
+
+function addToCart(name, price, btn) {
+  const exists = cart.find(i => i.name === name);
+  if (!exists) {
+    cart.push({ name, price });
+    updateCartUI();
+  }
+  btn.textContent = '✓ Agregado';
+  btn.classList.add('added');
+  setTimeout(() => {
+    btn.innerHTML = '🛒 Agregar al carrito';
+    btn.classList.remove('added');
+  }, 2000);
+  openCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const itemsEl = document.getElementById('cartItems');
+  const footerEl = document.getElementById('cartFooter');
+  const badgeEl = document.getElementById('cartBadge');
+  const fabEl = document.getElementById('cartFab');
+  const totalEl = document.getElementById('cartTotal');
+  const checkoutEl = document.getElementById('cartCheckout');
+
+  badgeEl.textContent = cart.length;
+  badgeEl.style.display = cart.length > 0 ? 'flex' : 'none';
+  fabEl.style.display = cart.length > 0 ? 'flex' : 'none';
+
+  if (cart.length === 0) {
+    itemsEl.innerHTML = '<p class="cart-empty">Todavía no agregaste productos.</p>';
+    footerEl.style.display = 'none';
+    return;
+  }
+
+  itemsEl.innerHTML = cart.map((item, i) => `
+    <div class="cart-item">
+      <span class="cart-item-name">${item.name}</span>
+      <span class="cart-item-price">${item.price}</span>
+      <button class="cart-item-remove" onclick="removeFromCart(${i})" title="Quitar">✕</button>
+    </div>
+  `).join('');
+
+  footerEl.style.display = 'block';
+
+  // Calcular total
+  const total = cart.reduce((acc, item) => {
+    const num = parseInt(item.price.replace(/[^0-9]/g, ''), 10);
+    return acc + num;
+  }, 0);
+  totalEl.textContent = 'Gs. ' + total.toLocaleString('es-PY');
+
+  // Armar mensaje WhatsApp
+  const lines = cart.map(i => `• ${i.name} (${i.price})`).join('%0A');
+  const totalLine = `%0A%0ATotal estimado%3A Gs. ${total.toLocaleString('es-PY')}`;
+  checkoutEl.href = `https://wa.me/595987340159?text=Hola%2C%20quisiera%20hacer%20el%20siguiente%20pedido%3A%0A${lines}${totalLine}`;
+}
+
+function openCart() {
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+}
+function closeCart() {
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+}
+
+/* ── VOLVER ARRIBA ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+});
 </script>
 
 </body></html>
